@@ -1,0 +1,131 @@
+# OpportunityOS
+
+Turn high-volume applications, registrations, and browser searches into repeatable opportunity workflows.
+
+OpportunityOS packages agent skills for the messy operational layer behind finding and pursuing opportunities: searching portals, shortlisting matches, tracking candidates, preparing handoffs, filling low-risk fields, repairing required documents, and stopping before human-only actions such as CAPTCHA, legal acceptance, payment, identity verification, or final submission.
+
+The repo is not just "admin automation." The higher-level purpose is to increase throughput and quality for opportunity creation: apartments, jobs, programs, marketplaces, registrations, and similar search-then-apply workflows.
+
+## What It Helps With
+
+- Search portals against explicit criteria and maintain a tracker.
+- Prepare browser handoffs for applications, inquiries, registrations, or submissions.
+- Repair low-quality ID scan PDFs when a workflow requires presentable documents.
+- Separate agent-safe preparation from human-only decisions and submissions.
+- Reuse the same workflow structure across apartments, jobs, vendors, programs, and other opportunity surfaces.
+
+## Install With skills.sh
+
+List the skills in this repo:
+
+```bash
+npx skills add https://github.com/ArthurZakirov/OpportunityOS --list
+```
+
+Install all skills for Codex:
+
+```bash
+npx skills add https://github.com/ArthurZakirov/OpportunityOS --skill '*' -a codex -g -y
+```
+
+Install one specific skill:
+
+```bash
+npx skills add https://github.com/ArthurZakirov/OpportunityOS --skill browser-search-and-handoff -a codex -g -y
+```
+
+## Install As A Claude Code Plugin
+
+```text
+/plugin marketplace add ArthurZakirov/OpportunityOS
+/plugin install opportunityos@arthur-zakirov
+```
+
+Claude Code plugin skills are namespaced by plugin name, for example:
+
+```text
+/opportunityos:browser-search-and-handoff
+```
+
+## Install As A Codex Plugin
+
+Add the marketplace:
+
+```bash
+codex plugin marketplace add ArthurZakirov/OpportunityOS
+```
+
+Then install from Codex with `/plugins`.
+
+For local development from a cloned repo:
+
+```bash
+./scripts/setup-local-links.sh
+```
+
+Existing non-symlink paths are left untouched unless `--force` is used.
+
+## Included Skills
+
+<!-- BEGIN GENERATED SECTION: skills -->
+> Generated from tracked `skills/*/SKILL.md` metadata.
+
+| Skill | Description |
+| --- | --- |
+| `browser-search-and-handoff` | Human-in-the-loop workflow for browser-based sourcing, shortlisting, and next-step preparation across marketplaces and portals. Use when Codex needs to search websites for entities that match user-defined criteria, collect results in a tracker, find each entity's follow-up action page or application form, prefill low-risk fields where appropriate, and stop for human-only steps such as CAPTCHA, OTP, legal acceptance, payment, identity verification, or final submission. Typical triggers include apartment hunting, job search, dating or partner discovery, vendor sourcing, and similar search-then-contact or search-then-apply workflows. |
+| `normalize-id-scan-pdf` | Repair low-quality or awkwardly laid-out ID scan PDFs. Use when a PDF of a personal ID, passport, or driver's license needs page content rotated without changing the page orientation, scaled up to use more of the page without clipping, renamed with stable bronze/silver/gold filenames, self-checked for cut-off content, or opened locally for final review. |
+<!-- END GENERATED SECTION: skills -->
+
+## Available Commands
+
+<!-- BEGIN GENERATED SECTION: commands -->
+> Generated from tracked `commands/*.md` files.
+
+| Command | Summary |
+| --- | --- |
+| `/list-skills` | Please list all your available skills with a 1 sentence description for each one. Do not return any additional fluff text before or after. |
+<!-- END GENERATED SECTION: commands -->
+
+## Repo Inventory
+
+<!-- BEGIN GENERATED SECTION: repo_inventory -->
+> Generated from tracked manifests, scripts, commands, and skills.
+
+```text
+.
+├── .agents/
+│   ├── plugins/marketplace.json
+│   └── skills -> ../skills
+├── .claude-plugin/
+│   ├── marketplace.json
+│   └── plugin.json
+├── .claude/
+│   ├── commands -> ../commands
+│   └── skills -> ../skills
+├── .codex-plugin/
+│   └── plugin.json
+├── .githooks/
+│   └── pre-commit
+├── .github/
+│   └── workflows/
+│       └── readme-generated.yml
+├── commands/
+│   └── list-skills.md
+├── scripts/
+│   ├── create-claude-command.sh
+│   ├── create-shared-skill.sh
+│   ├── generate-readme.py
+│   ├── install-git-hooks.sh
+│   ├── setup-local-links.sh
+│   └── update-readme.sh
+├── skills/
+│   ├── browser-search-and-handoff/
+│   └── normalize-id-scan-pdf/
+├── pyproject.toml
+└── uv.lock
+```
+<!-- END GENERATED SECTION: repo_inventory -->
+
+## Development
+
+Use `./scripts/update-readme.sh` after adding or removing tracked skills, commands, scripts, or plugin metadata.

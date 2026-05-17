@@ -1,0 +1,17 @@
+{
+  "name": "arthur-zakirov",
+  "owner": {
+    "name": "Arthur Zakirov"
+  },
+  "description": "Arthur Zakirov's reusable Claude Code plugin bundle.",
+  "plugins": [
+    {
+      "name": "opportunityos",
+      "source": "./",
+      "description": "Opportunity workflows for browser search, application handoff, and document preparation.",
+      "author": {
+        "name": "Arthur Zakirov"
+      }
+    }
+  ]
+}

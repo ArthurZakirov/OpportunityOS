@@ -1,0 +1,18 @@
+{
+  "name": "opportunityos",
+  "description": "OpportunityOS turns high-volume applications, registrations, and browser searches into reusable agent workflows.",
+  "author": {
+    "name": "Arthur Zakirov",
+    "url": "https://github.com/ArthurZakirov"
+  },
+  "homepage": "https://github.com/ArthurZakirov/OpportunityOS",
+  "repository": "https://github.com/ArthurZakirov/OpportunityOS",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "claude-code",
+    "plugin",
+    "workflow"
+  ],
+  "skills": "./skills/"
+}

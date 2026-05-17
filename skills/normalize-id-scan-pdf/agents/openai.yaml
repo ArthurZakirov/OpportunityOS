@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fix ID Scan PDF"
+  short_description: "Repair, fit, and rename ID scan PDFs"
+  default_prompt: "Use $normalize-id-scan-pdf to rotate, fit, validate, rename, and open this ID scan PDF."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Browser Search and Handoff"
+  short_description: "Search portals and prep human handoff"
+  default_prompt: "Use $browser-search-and-handoff to search matching listings, collect action URLs, and stop at human-only checkpoints."

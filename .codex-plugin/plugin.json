@@ -1,0 +1,38 @@
+{
+  "name": "opportunityos",
+  "version": "0.1.0",
+  "description": "OpportunityOS turns high-volume applications, registrations, and browser searches into reusable agent workflows.",
+  "author": {
+    "name": "Arthur Zakirov",
+    "url": "https://github.com/ArthurZakirov"
+  },
+  "homepage": "https://github.com/ArthurZakirov/OpportunityOS",
+  "repository": "https://github.com/ArthurZakirov/OpportunityOS",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "codex",
+    "claude-code",
+    "plugin",
+    "workflow"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "OpportunityOS",
+    "shortDescription": "Opportunity workflows for applications and registrations",
+    "longDescription": "Agent skills for browser search, opportunity tracking, application handoff, and supporting document repair.",
+    "developerName": "Arthur Zakirov",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/ArthurZakirov/OpportunityOS",
+    "defaultPrompt": [
+      "Use the relevant OpportunityOS workflow for this application or registration task.",
+      "Search, shortlist, track, prepare documents, and hand off browser workflows safely.",
+      "Prepare this opportunity workflow without crossing human-only submission boundaries."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
