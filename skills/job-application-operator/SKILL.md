@@ -32,7 +32,7 @@ Reference schemas and fake examples live in `references/`. Load them when creati
 
 The skill contains process rules, safety rules, field classification rules, loading rules, logging rules, and submission rules.
 
-The private files contain personal identity, contact details, links, citizenship/work authorization, salary policy, location preferences, work-mode preferences, language fluency, document paths, reusable answers, default field policies, and submission mode preferences.
+The shared personal profile contains identity, contact details, address, employment, housing, and generic form facts using the `bitwarden-personal-profile` schema. Domain files contain only job-specific extensions: citizenship/work authorization policy, salary policy, location preferences, work-mode preferences, document paths, reusable job answers, default field policies, and submission mode preferences.
 
 ## Browser Backends
 
@@ -110,7 +110,7 @@ Classify every field as one of:
 - `legal_edge_case`: unclear or out-of-scope legal meaning; stop.
 - `blocker`: prevents completion.
 
-Examples of `safe_known`: name, email, phone, LinkedIn, GitHub, portfolio, current city, current role, current employer, and language fluency if policy exists.
+Examples of `safe_known`: name, email, phone, address, generic employment facts, and other fields present in the shared personal profile if policy permits.
 
 Examples of `sensitive_known`: gender, disability, veteran/military status, nationality, citizenship, and demographic survey answers.
 

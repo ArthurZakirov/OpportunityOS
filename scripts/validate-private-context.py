@@ -57,6 +57,7 @@ def main() -> int:
     args = parser.parse_args()
 
     private_home = Path(args.private_home).expanduser()
+    shared_profile = private_home / "shared" / "personal-profile.yaml"
     job_home = private_home / "job-applications"
     profile = env_path("AGENTDESK_PROFILE_PATH", job_home / "application-profile.yaml")
     manifest = env_path("AGENTDESK_DOCUMENT_MANIFEST_PATH", job_home / "document-manifest.yaml")
@@ -65,19 +66,26 @@ def main() -> int:
 
     errors: list[str] = []
     statuses: list[tuple[str, Path, bool]] = [
+        ("shared_personal_profile", shared_profile, shared_profile.exists()),
         ("profile", profile, profile.exists()),
         ("document_manifest", manifest, manifest.exists()),
         ("field_policy", field_policy, field_policy.exists()),
         ("application_log", log_path, log_path.exists()),
     ]
 
-    for label, path, exists in statuses[:3]:
+    for label, path, exists in statuses[:4]:
         if not exists:
             errors.append(f"Missing {label}: {path}")
 
+    if shared_profile.exists():
+        text = read_text(shared_profile)
+        for key in ["version", "person", "contact"]:
+            if not has_top_level_key(text, key):
+                errors.append(f"{shared_profile}: missing top-level key `{key}`")
+
     if profile.exists():
         text = read_text(profile)
-        for key in ["version", "identity", "contact"]:
+        for key in ["version", "personalProfileRef"]:
             if not has_top_level_key(text, key):
                 errors.append(f"{profile}: missing top-level key `{key}`")
 
@@ -103,6 +111,7 @@ def main() -> int:
 
     report = {
         "privateHome": str(private_home),
+        "sharedPersonalProfile": {"path": str(shared_profile), "exists": shared_profile.exists()},
         "profile": {"path": str(profile), "exists": profile.exists()},
         "documentManifest": {"path": str(manifest), "exists": manifest.exists()},
         "fieldPolicy": {"path": str(field_policy), "exists": field_policy.exists()},

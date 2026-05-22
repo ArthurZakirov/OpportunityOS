@@ -1,37 +1,6 @@
 version: 1
 
-identity:
-  givenName: "Example"
-  familyName: "Person"
-  fullName: "Example Person"
-
-contact:
-  email: "example.person@example.invalid"
-  phone: "+00 000 000000"
-  address:
-    city: "Example City"
-    region: "Example Region"
-    country: "Example Country"
-
-links:
-  linkedin: "https://example.invalid/linkedin"
-  github: "https://example.invalid/github"
-  portfolio: "https://example.invalid"
-  personalWebsite: null
-  twitter: null
-  googleScholar: null
-  other: []
-
-employment:
-  currentTitle: "Example Engineer"
-  currentEmployer: "Example Company"
-  currentStartDate: "2024-01-01"
-
-languages:
-  items:
-    - language: "Example Language"
-      level: "fluent"
-      evidence: null
+personalProfileRef: "../shared/personal-profile.yaml"
 
 legal:
   citizenships:

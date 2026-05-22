@@ -79,6 +79,8 @@ After bootstrap:
 
 ```text
 $AGENTDESK_PRIVATE_HOME/
+  shared/
+    personal-profile.yaml
   job-applications/
     application-profile.yaml
     document-manifest.yaml
@@ -92,18 +94,21 @@ $AGENTDESK_PRIVATE_HOME/
       supporting-bundle.pdf
 ```
 
-Filenames may differ. Agents must use the manifest, not hardcoded filenames.
+`shared/personal-profile.yaml` must follow the `bitwarden-personal-profile` schema. Domain folders reference it instead of duplicating identity, contact, address, employment, housing, or generic form facts.
+
+Filenames may differ. Agents must use references and manifests, not hardcoded filenames.
 
 ## Required Checks
 
 Before any workflow uses private data:
 
 1. Confirm profile file exists.
-2. Confirm document manifest exists.
-3. Confirm field policy exists.
-4. Confirm referenced document paths exist if needed.
-5. Validate schemas.
-6. Report missing files clearly.
+2. Confirm shared personal profile exists and follows the Bitwarden personal profile shape.
+3. Confirm document manifest exists.
+4. Confirm field policy exists.
+5. Confirm referenced document paths exist if needed.
+6. Validate schemas.
+7. Report missing files clearly.
 
 ## Output
 
