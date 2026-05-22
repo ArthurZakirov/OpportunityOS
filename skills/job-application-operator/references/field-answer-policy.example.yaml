@@ -1,0 +1,70 @@
+version: 1
+
+submission:
+  defaultMode: assisted_review
+  autoSubmitAllowed: false
+  obeySiteTerms: true
+  stopOnCaptcha: true
+  stopOnMfa: true
+  stopOnLoginCreation: true
+  stopOnUnknownRequired: true
+
+roleFilters:
+  allowedCountries:
+    - EX
+  skippedCountries:
+    - ZZ
+  allowedWorkModes:
+    - hybrid
+    - office_based
+  fullyRemotePolicy: manual_review
+  requiredRoleKeywords: []
+  skipRoleKeywords:
+    - defense
+    - military
+    - export control
+
+fieldPolicies:
+  items:
+    - canonicalKey: compensation.expectedSalary.default
+      aliases:
+        - Expected salary
+        - Salary expectation
+        - Desired salary
+      fieldClass: strategic_known
+      valueRef: compensation.expectations.byContext.default.value
+      literalValue: null
+      allowedContexts:
+        - in_scope_country
+      autoFill: true
+      autoSubmitAllowed: true
+      askIfAmbiguous: true
+      sensitivity: high
+      notes: "Only if field asks for the configured compensation unit."
+
+    - canonicalKey: relocation.default
+      aliases:
+        - Are you willing to relocate?
+        - Relocation
+      fieldClass: strategic_known
+      valueRef: preferences.relocation.default
+      literalValue: null
+      allowedContexts:
+        - in_scope_country
+      autoFill: true
+      autoSubmitAllowed: true
+      askIfAmbiguous: false
+      sensitivity: medium
+      notes: null
+
+customQuestionPolicies:
+  items:
+    - canonicalKey: why_this_company
+      aliases:
+        - Why this company?
+        - Why do you want to work here?
+        - What interests you about us?
+      answerRef: null
+      strategy: deprioritize_application
+      autoFill: false
+      autoSubmitAllowed: false

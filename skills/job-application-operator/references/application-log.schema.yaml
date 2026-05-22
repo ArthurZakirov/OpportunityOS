@@ -1,0 +1,18 @@
+version: 1
+
+jsonlRecord:
+  timestamp: string
+  applicationUrl: string
+  company: string_or_null
+  roleTitle: string_or_null
+  platform: string_or_null
+  mode: string
+  status: string
+  fieldsFilled: list
+  fieldsSkipped: list
+  unknownRequiredFields: list
+  customQuestions: list
+  documentsUploaded: list
+  blockers: list
+  submitted: boolean
+  notes: string_or_null

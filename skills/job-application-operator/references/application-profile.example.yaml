@@ -1,0 +1,109 @@
+version: 1
+
+identity:
+  givenName: "Example"
+  familyName: "Person"
+  fullName: "Example Person"
+
+contact:
+  email: "example.person@example.invalid"
+  phone: "+00 000 000000"
+  address:
+    city: "Example City"
+    region: "Example Region"
+    country: "Example Country"
+
+links:
+  linkedin: "https://example.invalid/linkedin"
+  github: "https://example.invalid/github"
+  portfolio: "https://example.invalid"
+  personalWebsite: null
+  twitter: null
+  googleScholar: null
+  other: []
+
+employment:
+  currentTitle: "Example Engineer"
+  currentEmployer: "Example Company"
+  currentStartDate: "2024-01-01"
+
+languages:
+  items:
+    - language: "Example Language"
+      level: "fluent"
+      evidence: null
+
+legal:
+  citizenships:
+    - country: "Example Country"
+      primary: true
+      disclosurePolicy: "default"
+  workAuthorization:
+    byCountry:
+      EX: true
+  visaSponsorshipNeeded:
+    byCountry:
+      EX: false
+  countryScope:
+    applyOnlyTo:
+      - EX
+    skipByDefault:
+      - ZZ
+
+preferences:
+  locations:
+    preferred:
+      - "Example City"
+    acceptable:
+      - "Example Region"
+    skipByDefault:
+      - "Example Out-of-Scope Location"
+  workMode:
+    preferred:
+      - hybrid
+      - office_based
+    minimumOfficeDaysPerWeek: 2
+    fullyRemotePolicy: manual_review
+  relocation:
+    default: true
+    allowedContexts:
+      - in_scope_country
+  travel:
+    default: true
+    allowedContexts:
+      - in_scope_role
+
+availability:
+  noticePeriod:
+    known: false
+    value: null
+    source: null
+  vacationWorkdaysRemaining:
+    value: null
+    asOfDate: null
+  startDatePolicy: "Use conservative flexible answer until notice period is verified."
+
+compensation:
+  expectations:
+    byContext:
+      - context: "default"
+        currency: "EUR"
+        unit: "gross_annual_base"
+        value: null
+        rangeMin: null
+        rangeMax: null
+        autoFill: false
+        allowedCountries:
+          - EX
+
+reusableAnswers:
+  items:
+    - key: "what_should_we_know_about_you"
+      aliases:
+        - "What should we know about you?"
+      answer: "Example reusable answer."
+      allowedContexts:
+        - default
+      autoFill: false
+      submitAllowed: false
+      sensitivity: medium

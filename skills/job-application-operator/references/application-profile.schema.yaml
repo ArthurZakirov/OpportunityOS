@@ -1,0 +1,99 @@
+version: 1
+
+identity:
+  givenName: string
+  familyName: string
+  fullName: string
+
+contact:
+  email: string
+  phone: string
+  address:
+    city: string
+    region: string
+    country: string
+
+links:
+  linkedin: string_or_null
+  github: string_or_null
+  portfolio: string_or_null
+  personalWebsite: string_or_null
+  twitter: string_or_null
+  googleScholar: string_or_null
+  other: list
+
+employment:
+  currentTitle: string_or_null
+  currentEmployer: string_or_null
+  currentStartDate: string_or_null
+
+languages:
+  items:
+    - language: string
+      level: string
+      evidence: string_or_null
+
+legal:
+  citizenships:
+    - country: string
+      primary: boolean
+      disclosurePolicy: string
+  workAuthorization:
+    byCountry:
+      countryCode: boolean
+  visaSponsorshipNeeded:
+    byCountry:
+      countryCode: boolean
+  countryScope:
+    applyOnlyTo:
+      - countryCode
+    skipByDefault:
+      - countryCode
+
+preferences:
+  locations:
+    preferred: list
+    acceptable: list
+    skipByDefault: list
+  workMode:
+    preferred: list
+    minimumOfficeDaysPerWeek: number_or_null
+    fullyRemotePolicy: string
+  relocation:
+    default: boolean
+    allowedContexts: list
+  travel:
+    default: boolean
+    allowedContexts: list
+
+availability:
+  noticePeriod:
+    known: boolean
+    value: string_or_null
+    source: string_or_null
+  vacationWorkdaysRemaining:
+    value: number_or_null
+    asOfDate: string_or_null
+  startDatePolicy: string
+
+compensation:
+  expectations:
+    byContext:
+      - context: string
+        currency: string
+        unit: string
+        value: number_or_null
+        rangeMin: number_or_null
+        rangeMax: number_or_null
+        autoFill: boolean
+        allowedCountries: list
+
+reusableAnswers:
+  items:
+    - key: string
+      aliases: list
+      answer: string
+      allowedContexts: list
+      autoFill: boolean
+      submitAllowed: boolean
+      sensitivity: string

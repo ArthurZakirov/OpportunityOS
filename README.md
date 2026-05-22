@@ -73,7 +73,9 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 | Skill | Description |
 | --- | --- |
 | `browser-search-and-handoff` | Human-in-the-loop workflow for browser-based sourcing, shortlisting, and next-step preparation across marketplaces and portals. Use when Codex needs to search websites for entities that match user-defined criteria, collect results in a tracker, find each entity's follow-up action page or application form, prefill low-risk fields where appropriate, and stop for human-only steps such as CAPTCHA, OTP, legal acceptance, payment, identity verification, or final submission. Typical triggers include apartment hunting, job search, dating or partner discovery, vendor sourcing, and similar search-then-contact or search-then-apply workflows. |
+| `job-application-operator` | Run schema-driven, remote-backed, human-configurable job application workflows with field inventory, safe autofill, document upload, learning, logging, and optional autonomous submission when policy allows. |
 | `normalize-id-scan-pdf` | Repair low-quality or awkwardly laid-out ID scan PDFs. Use when a PDF of a personal ID, passport, or driver's license needs page content rotated without changing the page orientation, scaled up to use more of the page without clipping, renamed with stable bronze/silver/gold filenames, self-checked for cut-off content, or opened locally for final review. |
+| `private-context-bootstrap` | Bootstrap private, remote-backed user context onto a fresh machine for opportunity workflows without committing personal data to public repositories. |
 <!-- END GENERATED SECTION: skills -->
 
 ## Available Commands
@@ -112,15 +114,20 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 ├── commands/
 │   └── list-skills.md
 ├── scripts/
+│   ├── bootstrap-private-context.sh
 │   ├── create-claude-command.sh
 │   ├── create-shared-skill.sh
 │   ├── generate-readme.py
 │   ├── install-git-hooks.sh
+│   ├── materialize-private-context.py
 │   ├── setup-local-links.sh
-│   └── update-readme.sh
+│   ├── update-readme.sh
+│   └── validate-private-context.py
 ├── skills/
 │   ├── browser-search-and-handoff/
-│   └── normalize-id-scan-pdf/
+│   ├── job-application-operator/
+│   ├── normalize-id-scan-pdf/
+│   └── private-context-bootstrap/
 ├── pyproject.toml
 └── uv.lock
 ```

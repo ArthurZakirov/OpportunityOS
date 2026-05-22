@@ -132,6 +132,8 @@ Use [criteria-patterns.md](references/criteria-patterns.md) to adapt the intake 
 
 Use [tracker-fields.md](references/tracker-fields.md) to decide which columns must be populated before handing off a shortlist.
 
+For job applications, this skill owns discovery, scoring, shortlist tracking, and action URL collection. Once the user selects a specific job/application URL to execute, switch to `job-application-operator` for schema-driven field inventory, private-profile loading, document upload, logging, and submit-or-stop decisions.
+
 ## Failure Modes
 
 Expect these problems and account for them explicitly:

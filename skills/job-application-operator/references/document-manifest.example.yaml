@@ -1,0 +1,56 @@
+version: 1
+
+documents:
+  items:
+    - key: resume
+      role: resume
+      label: "CV / Resume"
+      currentPath: "/path/to/private/documents/resume.pdf"
+      sourcePath: "/path/to/private/resume-source.yaml"
+      remoteSource: null
+      required: true
+      uploadWhenLabelsMatch:
+        - Resume
+        - CV
+        - Lebenslauf
+      uploadPolicy: required_or_explicit_resume_field_only
+      acceptedFileTypes:
+        - pdf
+      contains: []
+      notes: null
+
+    - key: degree
+      role: education_proof
+      label: "Degree"
+      currentPath: "/path/to/private/documents/degree.pdf"
+      sourcePath: null
+      remoteSource: null
+      required: false
+      uploadWhenLabelsMatch:
+        - Degree
+        - Diploma
+        - Certificate
+        - Abschluss
+        - Zeugnis
+      uploadPolicy: only_when_requested
+      acceptedFileTypes:
+        - pdf
+      contains: []
+      notes: null
+
+    - key: references
+      role: references
+      label: "Reference letters"
+      currentPath: "/path/to/private/documents/references.pdf"
+      sourcePath: null
+      remoteSource: null
+      required: false
+      uploadWhenLabelsMatch:
+        - Reference
+        - Recommendation
+        - Arbeitszeugnis
+      uploadPolicy: only_when_requested_or_additional_documents_slot
+      acceptedFileTypes:
+        - pdf
+      contains: []
+      notes: null

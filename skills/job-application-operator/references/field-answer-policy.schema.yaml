@@ -1,0 +1,41 @@
+version: 1
+
+submission:
+  defaultMode: enum_inventory_only_assisted_review_auto_submit_when_fully_answerable_never_submit
+  autoSubmitAllowed: boolean
+  obeySiteTerms: boolean
+  stopOnCaptcha: boolean
+  stopOnMfa: boolean
+  stopOnLoginCreation: boolean
+  stopOnUnknownRequired: boolean
+
+roleFilters:
+  allowedCountries: list
+  skippedCountries: list
+  allowedWorkModes: list
+  fullyRemotePolicy: string
+  requiredRoleKeywords: list
+  skipRoleKeywords: list
+
+fieldPolicies:
+  items:
+    - canonicalKey: string
+      aliases: list
+      fieldClass: string
+      valueRef: string_or_null
+      literalValue: any_or_null
+      allowedContexts: list
+      autoFill: boolean
+      autoSubmitAllowed: boolean
+      askIfAmbiguous: boolean
+      sensitivity: string
+      notes: string_or_null
+
+customQuestionPolicies:
+  items:
+    - canonicalKey: string
+      aliases: list
+      answerRef: string_or_null
+      strategy: enum_fill_skip_if_optional_stop_if_required_deprioritize_application
+      autoFill: boolean
+      autoSubmitAllowed: boolean

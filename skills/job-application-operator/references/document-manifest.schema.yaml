@@ -1,0 +1,16 @@
+version: 1
+
+documents:
+  items:
+    - key: string
+      role: string
+      label: string
+      currentPath: string
+      sourcePath: string_or_null
+      remoteSource: string_or_null
+      required: boolean
+      uploadWhenLabelsMatch: list
+      uploadPolicy: string
+      acceptedFileTypes: list
+      contains: list
+      notes: string_or_null
