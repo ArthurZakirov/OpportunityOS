@@ -25,6 +25,20 @@ Use Notion MCP/API tools for:
 
 Do not use browser automation to edit Notion if MCP/API access is available.
 
+## MCP Query Limitation
+
+Some Notion MCP environments advertise a SQL/data-source query tool but reject it at runtime with an error like `Tool notion-query-data-sources not found`. When that happens, do not block on full-table SQL scans.
+
+Use these workarounds instead:
+
+1. Create or use a filtered Notion view for the exact audit queue, such as `Status is empty`, `Status is Needs enrichment`, or `Status is To do`.
+2. Fetch/search rows from that visible queue and update individual pages through MCP `update_page`.
+3. If view-based enumeration is unavailable, use Notion search within the data source with broad role/company terms to discover likely rows, then fetch/update individual pages.
+4. For a known dataset, use previously collected page IDs as a bounded backfill list.
+5. If complete reliability is required and credentials are available, use the official Notion API database-query endpoint from a local script instead of the broken MCP SQL wrapper.
+
+Prefer a temporary audit view over search when possible because it has a visible completion condition: the view becomes empty.
+
 ## Recommended Schema
 
 Minimum fields:
