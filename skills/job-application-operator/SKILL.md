@@ -9,7 +9,7 @@ description: Run schema-driven, remote-backed, human-configurable job applicatio
 
 Use this skill when applying to jobs, inspecting application forms, filling application fields, uploading documents, saving learned answers, or logging application outcomes.
 
-This skill is for the application execution stage: one selected job/application URL, private profile policy, documents, logging, and submit-or-stop decisions. Use `browser-search-and-handoff` for broad discovery and shortlisting before this stage.
+This skill is for the application execution stage: one selected job/application URL, private profile policy, documents, logging, and submit-or-stop decisions. Use discovery, tracking, or database skills before this stage to select exactly one application URL.
 
 This skill is generic. It must not contain personal values. Personal values are loaded from private files prepared by `private-context-bootstrap`.
 
