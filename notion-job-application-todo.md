@@ -113,6 +113,16 @@ Do not infer application progress without evidence from the application operator
 
 ## Enrichment Completeness
 
+Before full enrichment, the agent should confirm access to candidate context:
+
+- resume or experience evidence
+- target role preferences
+- location/remote constraints
+- compensation expectations, if relevant
+- application strategy or dealbreakers
+
+If candidate context is unavailable, the agent should recommend partial enrichment instead of blocking outright. Partial enrichment can fill public facts such as URL, company, role family, location, source, salary range, and salary rationale, but it should not invent fit rationale or priority score.
+
 A row is enriched enough for `Backlog` when it has:
 
 - valid `URL`

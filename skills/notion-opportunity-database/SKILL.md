@@ -87,6 +87,16 @@ Waiting for response -> Rejected
 
 ## Enrichment Criteria
 
+Full enrichment requires candidate context. Before scoring fit or writing a candidate-specific rationale, confirm access to:
+
+- resume or experience evidence
+- target role preferences
+- location/remote constraints
+- compensation expectations, if relevant
+- application strategy or dealbreakers
+
+If that context is unavailable, ask whether to do partial enrichment instead. Partial enrichment may still fill public/company facts such as URL, company, role family, location, source, salary range, and salary rationale, but should leave `Priority Score` and candidate-fit `Rationale` blank or explicitly mark them as needing candidate context.
+
 A row is enriched enough for `Backlog` when it has:
 
 - valid `URL`
@@ -99,7 +109,7 @@ A row is enriched enough for `Backlog` when it has:
 - `Salary Range` when a credible value is available, otherwise empty
 - `Salary Rationale` explaining source, confidence, or why salary is unknown
 
-Use `Needs enrichment` for raw imports and partially captured roles. Use `Enriching` while an agent is actively researching the row. Do not move a row to `To do` until it is in `Backlog` unless the user explicitly chooses to apply without full enrichment.
+Use `Needs enrichment` for raw imports and partially captured roles. Use `Enriching` while an agent is actively researching the row. Do not move a row to `Backlog` for fit-based application selection until full enrichment has candidate context, unless the user explicitly accepts partial enrichment. Do not move a row to `To do` until it is in `Backlog` unless the user explicitly chooses to apply without full enrichment.
 
 ## Rationale Field
 

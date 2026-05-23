@@ -216,6 +216,8 @@ Recommended status values:
 
 Use `Needs enrichment` for newly discovered roles that have not yet been scored and researched. Use `Enriching` while an agent is filling fit, score, rationale, salary, and source fields. Use `Backlog` only after the row is enriched enough to rank. Use `To do` only after a role is intentionally selected for the next application batch.
 
+Before full enrichment, confirm access to candidate context: resume or experience evidence, target role preferences, location/remote constraints, compensation expectations if relevant, and dealbreakers. If context is unavailable, ask whether to perform partial public-only enrichment. Partial enrichment can fill company, role family, location, salary, salary rationale, source, and public notes, but should not invent fit rationale or priority score.
+
 Minimum enrichment before `Backlog`:
 
 - valid URL
