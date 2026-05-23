@@ -15,25 +15,29 @@ This is the remaining work for the Notion-backed job application pipeline after 
 
 Use these `Status` select options in this order:
 
-1. `Backlog`
-2. `To do`
-3. `In progress`
-4. `Human blocked`
-5. `Ready to apply`
-6. `Submitted`
-7. `Waiting for response`
-8. `Interview invite`
-9. `Interview scheduled`
-10. `Interview completed`
-11. `Assessment received`
-12. `Assessment in progress`
-13. `Assessment submitted`
-14. `Rejected`
-15. `Closed`
+1. `Needs enrichment`
+2. `Enriching`
+3. `Backlog`
+4. `To do`
+5. `In progress`
+6. `Human blocked`
+7. `Ready to apply`
+8. `Submitted`
+9. `Waiting for response`
+10. `Interview invite`
+11. `Interview scheduled`
+12. `Interview completed`
+13. `Assessment received`
+14. `Assessment in progress`
+15. `Assessment submitted`
+16. `Rejected`
+17. `Closed`
 
 ## Status Semantics
 
-- `Backlog`: discovered and scored, but not selected for application work.
+- `Needs enrichment`: discovered or imported, but fit, score, rationale, salary, or source fields are incomplete.
+- `Enriching`: an agent is actively researching and completing the row.
+- `Backlog`: enriched and scored, but not selected for application work.
 - `To do`: selected from backlog for the next application batch.
 - `In progress`: agent or human is inspecting, filling, or preparing the application.
 - `Human blocked`: user action is needed, such as login, CAPTCHA, missing information, policy decision, or unclear required field.
@@ -52,7 +56,7 @@ Use these `Status` select options in this order:
 ## Normal Pipeline
 
 ```text
-Backlog -> To do -> In progress -> Ready to apply -> Submitted -> Waiting for response
+Needs enrichment -> Enriching -> Backlog -> To do -> In progress -> Ready to apply -> Submitted -> Waiting for response
 ```
 
 `Human blocked` branches from `In progress` and then returns to `In progress` or `Ready to apply` after the blocker is resolved.
@@ -76,7 +80,9 @@ Waiting for response -> Rejected
    - sorted by `Priority Score` descending
    - visible card properties include `Role`, `URL`, `Company`, `Priority Score`, `Rationale`, `Salary Range`, `Salary Rationale`, and `Source`
 5. Query all rows in the data source.
-6. Set every blank `Status` to `Backlog`.
+6. Set blank `Status` based on enrichment completeness:
+   - `Backlog` if the row has URL, company, role family, location, priority score, rationale, source, and salary rationale.
+   - `Needs enrichment` if those fields are incomplete.
 7. Set known closed postings to `Closed`.
 8. Do not set rows to `To do` automatically unless explicitly selecting a work batch.
 9. Verify there are no rows with blank `Status`.
@@ -97,11 +103,29 @@ Waiting for response -> Rejected
 
 Default:
 
-- Set unstarted rows to `Backlog`.
+- Set raw or incomplete rows to `Needs enrichment`.
+- Set rows actively being researched to `Enriching`.
+- Set enriched, ranked rows to `Backlog`.
 - Set only clearly queued rows to `To do`.
 - Set closed/unavailable postings to `Closed`.
 
 Do not infer application progress without evidence from the application operator, tracker notes, or Gmail.
+
+## Enrichment Completeness
+
+A row is enriched enough for `Backlog` when it has:
+
+- valid `URL`
+- `Company`
+- `Role Family`
+- `Location`
+- numeric `Priority Score`
+- consolidated `Rationale`
+- `Source`
+- `Salary Range` if credible, otherwise blank
+- `Salary Rationale` explaining source, confidence, or why salary is unknown
+
+Rows missing those fields should stay in `Needs enrichment` until an agent researches them.
 
 ## Gmail Progress Skill Follow-Up
 

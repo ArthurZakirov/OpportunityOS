@@ -196,6 +196,8 @@ Capture at minimum:
 
 Recommended status values:
 
+- Needs enrichment
+- Enriching
 - Backlog
 - To do
 - In progress
@@ -212,7 +214,19 @@ Recommended status values:
 - Rejected
 - Closed
 
-Use `Backlog` for newly discovered roles unless the user explicitly asks to queue them for application work. Use `To do` only after a role is intentionally selected for the next application batch.
+Use `Needs enrichment` for newly discovered roles that have not yet been scored and researched. Use `Enriching` while an agent is filling fit, score, rationale, salary, and source fields. Use `Backlog` only after the row is enriched enough to rank. Use `To do` only after a role is intentionally selected for the next application batch.
+
+Minimum enrichment before `Backlog`:
+
+- valid URL
+- company
+- role family
+- location
+- priority score
+- consolidated rationale
+- source
+- salary range if credible, otherwise blank
+- salary rationale explaining source, confidence, or unknown salary
 
 ## Scoring
 

@@ -49,7 +49,9 @@ Minimum fields:
 
 Recommended values:
 
-- `Backlog`: found and scored, not yet selected for application work
+- `Needs enrichment`: found or imported, but fit, score, rationale, salary, or source fields are incomplete
+- `Enriching`: an agent is researching and completing the row
+- `Backlog`: enriched and scored, not yet selected for application work
 - `To do`: selected from the backlog for the next application work batch
 - `In progress`: application form is being inspected, filled, or prepared
 - `Human blocked`: requires user action, login, CAPTCHA, missing information, unknown required field, or a policy decision
@@ -70,7 +72,7 @@ Use `Priority Score` for ranking and `Rationale` for fit explanation.
 Expected flow:
 
 ```text
-Backlog -> To do -> In progress -> Ready to apply -> Submitted -> Waiting for response
+Needs enrichment -> Enriching -> Backlog -> To do -> In progress -> Ready to apply -> Submitted -> Waiting for response
 ```
 
 `Human blocked` is a branch from `In progress`; return to `In progress` or `Ready to apply` after the blocker is resolved.
@@ -82,6 +84,22 @@ Waiting for response -> Interview invite -> Interview scheduled -> Interview com
 Waiting for response -> Assessment received -> Assessment in progress -> Assessment submitted -> Waiting for response
 Waiting for response -> Rejected
 ```
+
+## Enrichment Criteria
+
+A row is enriched enough for `Backlog` when it has:
+
+- valid `URL`
+- `Company`
+- `Role Family`
+- `Location`
+- numeric `Priority Score`
+- consolidated `Rationale`
+- `Source`
+- `Salary Range` when a credible value is available, otherwise empty
+- `Salary Rationale` explaining source, confidence, or why salary is unknown
+
+Use `Needs enrichment` for raw imports and partially captured roles. Use `Enriching` while an agent is actively researching the row. Do not move a row to `To do` until it is in `Backlog` unless the user explicitly chooses to apply without full enrichment.
 
 ## Rationale Field
 
