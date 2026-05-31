@@ -76,6 +76,7 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 | `find-vc-backed-ai-jobs-munich` | Discover, evaluate, deduplicate, and store VC-backed AI startup jobs in Munich, Germany, and nearby/remote markets using web search, browser extraction, and a tracker or Notion database. |
 | `gmail-opportunity-progress` | Monitor Gmail for job or opportunity application updates, classify messages such as confirmations, rejections, interview invites, assessments, and follow-ups, then update a tracker or Notion opportunity database without coupling to the application execution skill. |
 | `job-application-operator` | Run schema-driven, remote-backed, human-configurable job application workflows with field inventory, safe autofill, document upload, learning, logging, and optional autonomous submission when policy allows. |
+| `munich-apartment-search` | Search, evaluate, filter, rank, and apply for Munich apartments while balancing commute, rent, transport access, contract flexibility, and future optionality. |
 | `normalize-id-scan-pdf` | Repair low-quality or awkwardly laid-out ID scan PDFs. Use when a PDF of a personal ID, passport, or driver's license needs page content rotated without changing the page orientation, scaled up to use more of the page without clipping, renamed with stable bronze/silver/gold filenames, self-checked for cut-off content, or opened locally for final review. |
 | `notion-opportunity-database` | Set up, maintain, and use a Notion opportunity database as the system of record for search, scoring, one-at-a-time application handoff, and status updates. |
 | `opportunity-tool-selection` | Decide which tool mode to use for opportunity workflows: normal web search, browser automation, MCP/API access, local files, or chat-only reasoning. |
@@ -132,6 +133,7 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 │   ├── find-vc-backed-ai-jobs-munich/
 │   ├── gmail-opportunity-progress/
 │   ├── job-application-operator/
+│   ├── munich-apartment-search/
 │   ├── normalize-id-scan-pdf/
 │   ├── notion-opportunity-database/
 │   ├── opportunity-tool-selection/
