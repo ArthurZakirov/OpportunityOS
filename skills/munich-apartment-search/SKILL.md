@@ -13,7 +13,27 @@ The goal is not simply to find cheap housing. The goal is to find a private, rea
 
 ## Required User Context
 
-Before making specific recommendations, collect or load the user's private context from an appropriate private source. Do not store personal details in this reusable skill.
+Before making specific recommendations, collect or load the user's private context from the private context repository. Do not store personal details in this reusable skill.
+
+Canonical private context location:
+
+```text
+$PERSONAL_REPOS_DIR/AgentDesk-private-context/apartment-search/
+```
+
+Expected files:
+
+```text
+search-context.md
+search-profile.yaml
+application-log.jsonl
+document-manifest.yaml
+field-answer-policy.yaml
+```
+
+Use `$PERSONAL_REPOS_DIR` from the environment. If it is not set, infer it from the standard repo layout as `$HOME/Repos/personal`. Do not look for private context inside public repositories such as `AgentDesk` or `OpportunityOS`.
+
+When the canonical private context exists, load `search-context.md` first because it contains the long-form search strategy, tradeoffs, and user-specific reasoning. Then load structured files such as `search-profile.yaml`, `application-log.jsonl`, and document manifests as needed. If the private context is missing, say exactly which canonical path is missing and continue only with generic apartment-search guidance.
 
 Useful private inputs include:
 
