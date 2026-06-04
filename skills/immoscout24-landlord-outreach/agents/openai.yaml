@@ -1,0 +1,4 @@
+interface:
+  display_name: "ImmoScout24 Landlord Outreach"
+  short_description: "Write and send concise ImmoScout24 landlord contact messages."
+  default_prompt: "Help me contact this ImmoScout24 listing with a concise, high-conversion message."
