@@ -75,6 +75,7 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 | `browser-search-and-handoff` | Human-in-the-loop workflow for browser-based sourcing, shortlisting, and next-step preparation across marketplaces and portals. Use when Codex needs to search websites for entities that match user-defined criteria, collect results in a tracker, find each entity's follow-up action page or application form, prefill low-risk fields where appropriate, and stop for human-only steps such as CAPTCHA, OTP, legal acceptance, payment, identity verification, or final submission. Typical triggers include apartment hunting, job search, dating or partner discovery, vendor sourcing, and similar search-then-contact or search-then-apply workflows. |
 | `find-vc-backed-ai-jobs-munich` | Discover, evaluate, deduplicate, and store VC-backed AI startup jobs in Munich, Germany, and nearby/remote markets using web search, browser extraction, and a tracker or Notion database. |
 | `gmail-opportunity-progress` | Monitor Gmail for job or opportunity application updates, classify messages such as confirmations, rejections, interview invites, assessments, and follow-ups, then update a tracker or Notion opportunity database without coupling to the application execution skill. |
+| `immoscout24-landlord-outreach` | Compose, verify, and send concise ImmoScout24 landlord contact messages when the user is already logged in on ImmoScout24 and wants to contact one or more rental listings. Use for German rental listing outreach, landlord/broker message templates, profile-based apartment introductions, and troubleshooting ImmoScout24 contact form automation. Do not use for full portal applications with PDF uploads; use a separate apartment application workflow for that. |
 | `job-application-operator` | Run schema-driven, remote-backed, human-configurable job application workflows with field inventory, safe autofill, document upload, learning, logging, and optional autonomous submission when policy allows. |
 | `munich-apartment-search` | Search, evaluate, filter, rank, and apply for Munich apartments while balancing commute, rent, transport access, contract flexibility, and future optionality. |
 | `normalize-id-scan-pdf` | Repair low-quality or awkwardly laid-out ID scan PDFs. Use when a PDF of a personal ID, passport, or driver's license needs page content rotated without changing the page orientation, scaled up to use more of the page without clipping, renamed with stable bronze/silver/gold filenames, self-checked for cut-off content, or opened locally for final review. |
@@ -132,6 +133,7 @@ Existing non-symlink paths are left untouched unless `--force` is used.
 │   ├── browser-search-and-handoff/
 │   ├── find-vc-backed-ai-jobs-munich/
 │   ├── gmail-opportunity-progress/
+│   ├── immoscout24-landlord-outreach/
 │   ├── job-application-operator/
 │   ├── munich-apartment-search/
 │   ├── normalize-id-scan-pdf/
