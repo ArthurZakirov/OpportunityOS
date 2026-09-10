@@ -41,6 +41,14 @@ def tracked_paths() -> list[Path]:
     return [Path(item) for item in output.split("\0") if item]
 
 
+def tracked_symlink_target(path: Path) -> str | None:
+    """Return the link target recorded by Git, even on Windows without symlinks."""
+    stage = run_git("ls-files", "--stage", "--", path.as_posix()).strip()
+    if not stage.startswith("120000 "):
+        return None
+    return run_git("show", f":{path.as_posix()}").strip()
+
+
 def parse_frontmatter(path: Path) -> dict[str, str]:
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
@@ -180,6 +188,10 @@ def build_repo_inventory_section(paths: list[Path]) -> str:
             resolved = ROOT / entry
             if resolved.is_symlink():
                 label = f"{label} -> {os.readlink(resolved)}"
+            else:
+                link_target = tracked_symlink_target(entry)
+                if link_target is not None:
+                    label = f"{label} -> {link_target}"
             inventory.append((1, label))
 
     if (ROOT / ".githooks" / "pre-commit").exists():
