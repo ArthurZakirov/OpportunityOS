@@ -1,6 +1,6 @@
 ---
 name: opportunity-tool-selection
-description: Decide which tool mode to use for opportunity workflows: normal web search, browser automation, MCP/API access, local files, or chat-only reasoning.
+description: "Decide which tool mode to use for opportunity workflows: normal web search, browser automation, MCP/API access, local files, or chat-only reasoning."
 ---
 
 # Opportunity Tool Selection
