@@ -13,17 +13,7 @@ The goal is not to write a full cover letter. The goal is to make the landlord o
 
 ## Private Context
 
-Load personal facts from the user's private context, not from this reusable skill.
-
-Prefer these files when available:
-
-```text
-$PERSONAL_REPOS_DIR/AgentDesk-private-context/shared/personal-profile.yaml
-$PERSONAL_REPOS_DIR/AgentDesk-private-context/apartment-search/search-profile.yaml
-$PERSONAL_REPOS_DIR/AgentDesk-private-context/apartment-search/document-manifest.yaml
-```
-
-If `$PERSONAL_REPOS_DIR` is unset, infer `$HOME/Repos/personal`.
+Load only durable personal facts from `self-source` when needed, for example from `shared/personal-profile.yaml`. Do not expect an apartment-search profile or document manifest to exist: apartment-specific requirements and document availability must be current for the present search and should be obtained from the user or the active workflow.
 
 Use only facts that are explicitly present or confirmed by the user. Do not invent salary, contract type, pets, smoking status, move-in date, household size, or document availability.
 

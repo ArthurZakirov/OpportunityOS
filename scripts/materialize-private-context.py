@@ -56,8 +56,8 @@ def copy_tree(source_root: Path, target_root: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source", default=os.environ.get("AGENTDESK_PRIVATE_REPO", str(Path.home() / ".local/share/AgentDesk/private-repo")))
-    parser.add_argument("--target", default=os.environ.get("AGENTDESK_PRIVATE_HOME", str(Path.home() / ".config/AgentDesk/private")))
+    parser.add_argument("--source", default=os.environ.get("SELF_SOURCE_REPO", str(Path.home() / ".local/share/self-source/repo")))
+    parser.add_argument("--target", default=os.environ.get("SELF_SOURCE_HOME", str(Path.home() / ".config/self-source")))
     args = parser.parse_args()
 
     source = Path(args.source).expanduser()

@@ -53,7 +53,7 @@ def validate_jsonl(path: Path, errors: list[str]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--private-home", default=os.environ.get("AGENTDESK_PRIVATE_HOME", str(Path.home() / ".config/AgentDesk/private")))
+    parser.add_argument("--private-home", default=os.environ.get("SELF_SOURCE_HOME", str(Path.home() / ".config/self-source")))
     args = parser.parse_args()
 
     private_home = Path(args.private_home).expanduser()

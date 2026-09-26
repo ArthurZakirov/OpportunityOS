@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PRIVATE_HOME="${AGENTDESK_PRIVATE_HOME:-$HOME/.config/AgentDesk/private}"
-PRIVATE_REPO="${AGENTDESK_PRIVATE_REPO:-$HOME/.local/share/AgentDesk/private-repo}"
-PRIVATE_REMOTE="${AGENTDESK_PRIVATE_REMOTE:-}"
+PRIVATE_HOME="${SELF_SOURCE_HOME:-$HOME/.config/self-source}"
+PRIVATE_REPO="${SELF_SOURCE_REPO:-$HOME/.local/share/self-source/repo}"
+PRIVATE_REMOTE="${SELF_SOURCE_REMOTE:-}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -12,12 +12,12 @@ if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
 Usage: bootstrap-private-context.sh [private-remote-url]
 
 Bootstraps private, remote-backed OpportunityOS/AgentDesk context onto this
-machine, materializes files under AGENTDESK_PRIVATE_HOME, and validates them.
+machine, materializes files under SELF_SOURCE_HOME, and validates them.
 
 Environment:
-  AGENTDESK_PRIVATE_REMOTE
-  AGENTDESK_PRIVATE_HOME
-  AGENTDESK_PRIVATE_REPO
+  SELF_SOURCE_REMOTE
+  SELF_SOURCE_HOME
+  SELF_SOURCE_REPO
   SOPS_AGE_KEY_FILE / SOPS_AGE_KEY / SOPS_* as supported by sops
 EOF
   exit 0
@@ -47,8 +47,8 @@ if [[ "$missing" == "true" ]]; then
     cat >&2 <<EOF
 Private context is missing and no remote source is configured.
 
-Set AGENTDESK_PRIVATE_REMOTE or pass a private repo URL:
-  AGENTDESK_PRIVATE_REMOTE=git@github.com:OWNER/private-context.git scripts/bootstrap-private-context.sh
+Set SELF_SOURCE_REMOTE or pass a private repo URL:
+  SELF_SOURCE_REMOTE=git@github.com:OWNER/private-context.git scripts/bootstrap-private-context.sh
 EOF
     exit 2
   fi

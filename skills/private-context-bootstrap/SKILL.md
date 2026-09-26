@@ -37,13 +37,13 @@ Do not rely on untracked local files as the only source of truth.
 Support these variables:
 
 ```bash
-AGENTDESK_PRIVATE_REMOTE=""
-AGENTDESK_PRIVATE_HOME="$HOME/.config/AgentDesk/private"
-AGENTDESK_PRIVATE_REPO="$HOME/.local/share/AgentDesk/private-repo"
-AGENTDESK_PROFILE_PATH="$AGENTDESK_PRIVATE_HOME/job-applications/application-profile.yaml"
-AGENTDESK_DOCUMENT_MANIFEST_PATH="$AGENTDESK_PRIVATE_HOME/job-applications/document-manifest.yaml"
-AGENTDESK_FIELD_POLICY_PATH="$AGENTDESK_PRIVATE_HOME/job-applications/field-answer-policy.yaml"
-AGENTDESK_APPLICATION_LOG_PATH="$AGENTDESK_PRIVATE_HOME/job-applications/application-log.jsonl"
+SELF_SOURCE_REMOTE=""
+SELF_SOURCE_HOME="$HOME/.config/self-source"
+SELF_SOURCE_REPO="$HOME/.local/share/self-source/repo"
+AGENTDESK_PROFILE_PATH="$SELF_SOURCE_HOME/job-applications/application-profile.yaml"
+AGENTDESK_DOCUMENT_MANIFEST_PATH="$SELF_SOURCE_HOME/job-applications/document-manifest.yaml"
+AGENTDESK_FIELD_POLICY_PATH="$SELF_SOURCE_HOME/job-applications/field-answer-policy.yaml"
+AGENTDESK_APPLICATION_LOG_PATH="$SELF_SOURCE_HOME/job-applications/application-log.jsonl"
 ```
 
 If variables are absent, use the defaults above.
@@ -52,11 +52,11 @@ If variables are absent, use the defaults above.
 
 On a fresh machine:
 
-1. Check whether `AGENTDESK_PRIVATE_HOME` exists.
+1. Check whether `SELF_SOURCE_HOME` exists.
 2. Check whether required private files exist.
-3. If missing, locate the remote source from `AGENTDESK_PRIVATE_REMOTE`, the configured secret manager, or the user.
-4. Clone or sync the private remote source into `AGENTDESK_PRIVATE_REPO`.
-5. If files are encrypted, decrypt them into `AGENTDESK_PRIVATE_HOME`.
+3. If missing, locate the remote source from `SELF_SOURCE_REMOTE`, the configured secret manager, or the user.
+4. Clone or sync the private remote source into `SELF_SOURCE_REPO`.
+5. If files are encrypted, decrypt them into `SELF_SOURCE_HOME`.
 6. If PDFs are stored remotely, download or sync them.
 7. Validate all required files against schemas.
 8. Verify referenced documents exist.
@@ -78,7 +78,7 @@ Use `scripts/bootstrap-private-context.sh` from the OpportunityOS repo when avai
 After bootstrap:
 
 ```text
-$AGENTDESK_PRIVATE_HOME/
+$SELF_SOURCE_HOME/
   shared/
     personal-profile.yaml
   job-applications/

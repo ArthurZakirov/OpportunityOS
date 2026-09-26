@@ -13,29 +13,11 @@ The goal is not simply to find cheap housing. The goal is to find a private, rea
 
 ## Required User Context
 
-Before making specific recommendations, collect or load the user's private context from the private context repository. Do not store personal details in this reusable skill.
+Do not assume a persisted apartment-search profile exists. Apartment requirements age quickly, so collect the current search constraints from the user for each new search.
 
-Canonical private context location:
+Load only durable personal facts from `self-source` when they are actually relevant, such as the user's current home location or stable identity/contact facts. Do not recreate or depend on a `self-source/apartment-search/` directory.
 
-```text
-$PERSONAL_REPOS_DIR/AgentDesk-private-context/apartment-search/
-```
-
-Expected files:
-
-```text
-search-context.md
-search-profile.yaml
-application-log.jsonl
-document-manifest.yaml
-field-answer-policy.yaml
-```
-
-Use `$PERSONAL_REPOS_DIR` from the environment. If it is not set, infer it from the standard repo layout as `$HOME/Repos/personal`. Do not look for private context inside public repositories such as `AgentDesk` or `OpportunityOS`.
-
-When the canonical private context exists, load `search-context.md` first because it contains the long-form search strategy, tradeoffs, and user-specific reasoning. Then load structured files such as `search-profile.yaml`, `application-log.jsonl`, and document manifests as needed. If the private context is missing, say exactly which canonical path is missing and continue only with generic apartment-search guidance.
-
-Useful private inputs include:
+Useful current inputs include:
 
 - Target commute anchor, such as workplace, university, family location, or frequent destination
 - Regular travel obligations and whether they affect location choice
